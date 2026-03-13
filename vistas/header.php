@@ -34,22 +34,25 @@ session_start();
                     <li class="nav-item active">
                         <a class="nav-link" href="inicio.php">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="misDispositivos.php">Mis dispositivos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="misReportes.php">Reportes Soporte</a>
-                    </li>
-                    <!-- Aqui inician las vistas de admin -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="usuarios.php">Usuario</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="asignacionEquipos.php">Asiganacion de equipos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="reportes.php">Reportes</a>
-                    </li>
+                    <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 1) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="misDispositivos.php">Mis dispositivos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="misReportes.php">Reportes Soporte</a>
+                        </li>
+                    <?php } elseif (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 2) { ?>
+                        <!-- Aqui inician las vistas de admin -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="usuarios.php">Usuario</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="asignacionEquipos.php">Asiganacion de equipos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reportes.php">Reportes</a>
+                        </li>
+                    <?php } ?>
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:blue;">
