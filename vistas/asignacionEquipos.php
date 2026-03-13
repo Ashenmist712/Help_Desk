@@ -1,6 +1,6 @@
 <?php
 include_once 'header.php';
-if (isset($_SESSION['usuario']) && $_SESSION['usuario']['id'] == 1 || $_SESSION['usuario']['id'] == 2) {
+if (isset($_SESSION['usuario']) && $_SESSION['usuario']['id'] == 2) {
 
 
 ?>
