@@ -37,9 +37,10 @@ $respuesta = mysqli_query($conexion, $sql);
                 <th>Teléfono</th>
                 <th>Correo</th>
                 <th>Usuario</th>
+                <th>Ubicación</th>
                 <th>Reset Password</th>
                 <th>Cambiar Rol</th>
-                <th>Ubicación</th>
+                <th>Activar</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -55,6 +56,7 @@ $respuesta = mysqli_query($conexion, $sql);
                     <td><?php echo $mostrar['telefono']; ?></td>
                     <td><?php echo $mostrar['correo']; ?></td>
                     <td><?php echo $mostrar['nombreUsuario']; ?></td>
+                    <td><?php echo $mostrar['ubicacion']; ?></td>
                     <td>
                         <button class="btn btn-success btn-sm">
                             Cambiar Password
@@ -65,7 +67,21 @@ $respuesta = mysqli_query($conexion, $sql);
                             Cambiar Rol
                         </button>
                     </td>
-                    <td><?php echo $mostrar['ubicacion']; ?></td>
+                    <td>
+                        <?php
+                        if ($mostrar['estatus'] == 1) {
+                        ?>
+                            <button class="btn btn-info btn-sm">
+                                Activo
+                            </button>
+                        <?php } else { ?>
+                            <button class="btn btn-secondary btn-sm">
+                                Inactivo
+                            </button>
+                        <?php
+                        }
+                        ?>
+                    </td>
                     <td>
                         <button class="btn btn-warning btn-sm">
                             Editar
