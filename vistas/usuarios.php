@@ -22,9 +22,12 @@ if (isset($_SESSION['usuario']) &&  $_SESSION['usuario']['rol'] == 2) {
 
     </html>
 
-<?php
+    <?php
     include 'usuarios/modalAgregar.php';
     include 'footer.php';
+    ?>
+    <script src="../public/js/usuarios/usuarios.js"></script>
+<?php
 } else {
     header('Location: ../index.html');
 }
