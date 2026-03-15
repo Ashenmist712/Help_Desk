@@ -24,8 +24,8 @@ session_start();
             <button
                 class="navbar-toggler"
                 type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive"
+                data-toggle="collapse"
+                data-target="#navbarResponsive"
                 aria-controls="navbarResponsive"
                 aria-expanded="false"
                 aria-label="Toggle navigation">

@@ -135,4 +135,74 @@ class Usuarios extends Conexion
         );
         return $datos;
     }
+    public function actualizarUsuario($datos)
+    {
+        $conexion = Conexion::conectar();
+        $exitoPersona = self::actualizarPersona($datos);
+        if ($exitoPersona) {
+            $sql = "UPDATE t_usuarios 
+                    SET id_rol = ?, 
+                        usuario = ?, 
+                        password = ?, 
+                        ubicacion = ?
+                    WHERE id_usuario = ?";
+            $query = $conexion->prepare($sql);
+            $query->bind_param(
+                "isssi",
+                $datos['idRol'],
+                $datos['usuario'],
+                $datos['password'],
+                $datos['ubicacion'],
+                $datos['idUsuario']
+            );
+            $respuesta = $query->execute();
+            $query->close();
+            return $respuesta;
+        } else {
+            return 0;
+        }
+    }
+    public function actualizarPersona($datos)
+    {
+        $conexion = Conexion::conectar();
+        $idPersona = self::obtenerIdUsuario($datos['idUsuario']);
+        $sql = "UPDATE t_persona 
+                SET paterno = ?, 
+                    materno = ?, 
+                    nombre = ?, 
+                    fecha_nacimiento = ?, 
+                    sexo = ?, 
+                    telefono = ?, 
+                    correo = ?
+                WHERE id_persona = ?";
+        $query = $conexion->prepare($sql);
+        $query->bind_param(
+            "sssssssi",
+            $datos['paterno'],
+            $datos['materno'],
+            $datos['nombre'],
+            $datos['fechaNacimiento'],
+            $datos['sexo'],
+            $datos['telefono'],
+            $datos['correo'],
+            $idPersona
+        );
+        $respuesta = $query->execute();
+        $query->close();
+        return $respuesta;
+    }
+    public function obtenerIdUsuario($idUsuario)
+    {
+        $conexion = Conexion::conectar();
+        $sql = "SELECT 
+                    persona.id_persona as idPersona
+                FROM
+                    t_usuarios AS usuarios
+                        INNER JOIN
+                    t_persona AS persona ON usuarios.id_persona = persona.id_persona
+                WHERE usuarios.id_usuario = '$idUsuario'";
+        $respuesta = mysqli_query($conexion, $sql);
+        $idPersona = mysqli_fetch_array($respuesta)['idPersona'];
+        return $idPersona;
+    }
 }
