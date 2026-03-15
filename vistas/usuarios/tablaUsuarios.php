@@ -4,7 +4,7 @@ $con = new Conexion();
 $conexion = $con->conectar();
 
 $sql = "SELECT 
-            usuarios.id_usuario AS id_usuario,
+            usuarios.id_usuario AS idUsuario,
             usuarios.usuario AS nombreUsuario,
             roles.nombre AS rol,
             usuarios.id_rol AS idRol,
@@ -33,13 +33,12 @@ $respuesta = mysqli_query($conexion, $sql);
                 <th>Apellido Materno</th>
                 <th>Nombre</th>
                 <th>Fecha Nacimiento</th>
-                <th>Sexo</th>
                 <th>Teléfono</th>
                 <th>Correo</th>
                 <th>Usuario</th>
                 <th>Ubicación</th>
+                <th>Sexo</th>
                 <th>Reset Password</th>
-                <th>Cambiar Rol</th>
                 <th>Activar</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
@@ -52,19 +51,14 @@ $respuesta = mysqli_query($conexion, $sql);
                     <td><?php echo $mostrar['materno']; ?></td>
                     <td><?php echo $mostrar['nombrePersona']; ?></td>
                     <td><?php echo $mostrar['fechaNacimiento']; ?></td>
-                    <td><?php echo $mostrar['sexo']; ?></td>
                     <td><?php echo $mostrar['telefono']; ?></td>
                     <td><?php echo $mostrar['correo']; ?></td>
                     <td><?php echo $mostrar['nombreUsuario']; ?></td>
                     <td><?php echo $mostrar['ubicacion']; ?></td>
+                    <td><?php echo $mostrar['sexo']; ?></td>
                     <td>
                         <button class="btn btn-success btn-sm">
                             Cambiar Password
-                        </button>
-                    </td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">
-                            Cambiar Rol
                         </button>
                     </td>
                     <td>
@@ -83,7 +77,9 @@ $respuesta = mysqli_query($conexion, $sql);
                         ?>
                     </td>
                     <td>
-                        <button class="btn btn-warning btn-sm">
+                        <button class="btn btn-warning btn-sm" data-toggle="modal"
+                            data-target="#modalActualizarUsuarios"
+                            onclick="obtenerDatosUsuario('<?php echo $mostrar['idUsuario']; ?>')">
                             Editar
                         </button>
                     </td>
