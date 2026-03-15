@@ -21,3 +21,42 @@ function asignarEquipo() {
     });
     return false;
 }
+function eliminarAsignacion(idAsignacion) {
+    Swal.fire({
+        title: '¿Estás seguro de eliminar esta asignación?',
+        text: "¡Esta acción no se puede deshacer!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        // Si el usuario hizo clic en "Sí, eliminar"
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                data: "idAsignacion=" + idAsignacion,
+                url: "../procesos/asignacion/eliminarAsignacion.php",
+                success: function(respuesta) {
+                    respuesta = respuesta.trim();
+                    if (respuesta == 1) {
+                        // Recargamos la tabla para ver el cambio
+                        $('#tablaAsignacionesLoad').load('asignacion/tablaAsignacion.php');
+                        Swal.fire(
+                            '¡Eliminado!',
+                            'La asignación ha sido borrada.',
+                            'success'
+                        );
+                    } else {
+                        Swal.fire(
+                            ':(',
+                            'Error al eliminar: ' + respuesta,
+                            'error'
+                        );
+                    }
+                }
+            });
+        }
+    });
+}

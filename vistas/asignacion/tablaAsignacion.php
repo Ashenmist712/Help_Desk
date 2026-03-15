@@ -51,7 +51,10 @@ $repuesta = mysqli_query($conexion, $sql);
                 <td><?php echo  $mostrar['discoDuro'] ?></td>
                 <td><?php echo  $mostrar['procesador'] ?></td>
                 <td>
-                    <button class="btn btn-danger btn-sm">eliminar</button>
+                    <button class="btn btn-danger btn-sm"
+                        onclick="eliminarAsignacion('<?php echo $mostrar['idAsignacion'] ?>')">
+                        <span class="fas fa-trash-alt"></span> eliminar
+                    </button>
                 </td>
             </tr>
         <?php } ?>
