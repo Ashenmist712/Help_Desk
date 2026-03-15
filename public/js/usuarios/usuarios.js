@@ -54,22 +54,14 @@ function actualizarUsuario(){
         success: function(respuesta) {
             respuesta = respuesta.trim();
             if (respuesta == 1) {
-                // 1. Recargar la tabla
+                
                 $('#tablaUsuariosLoad').load('usuarios/tablaUsuarios.php');
-                
-                // 2. Intentar cerrar el modal de tres formas diferentes
-                $('#modalActualizarUsuarios').modal('hide'); // Forma jQuery
-                $('.btn-close').click(); // Simula clic en la 'X' de cerrar
-                $('.close').click(); // Simula clic en el botón de cerrar de versiones viejas
-                
-                // 3. Limpiar el rastro negro que a veces se queda
+                $('#modalActualizarUsuarios').modal('hide'); 
+                $('.btn-close').click(); 
+                $('.close').click(); 
                 $('body').removeClass('modal-open');
                 $('.modal-backdrop').remove();
-
-                // 4. Mostrar la alerta
                 swal.fire(":D", "Actualizado con exito!", "success");
-                
-                // 5. Resetear el formulario
                 $('#frmActualizarUsuario').trigger("reset");
             } else {
                 swal.fire(":(", "Error al actualizar!" + respuesta, "error");
@@ -78,3 +70,4 @@ function actualizarUsuario(){
     });
     return false;
 }
+
