@@ -1,24 +1,71 @@
 <?php
 include_once 'header.php';
+
 if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 1) {
+    include '../clases/conexion.php';
+    $con = new Conexion();
+    $conexion = $con->conectar();
+    $idUsuario = $_SESSION['usuario']['id'];
+    $sql = "SELECT
+                persona.id_persona AS idPersona
+            FROM
+                t_usuarios AS usuario
+                    INNER JOIN
+                t_persona AS persona ON usuario.id_persona = persona.id_persona
+                    AND usuario.id_usuario = '$idUsuario'";
+    $respuesta = mysqli_query($conexion, $sql);
+    $idPersona = mysqli_fetch_array($respuesta)[0];
+    $sql = "SELECT 
+                persona.id_persona AS idPersona,
+                CONCAT_WS(' ',
+                        persona.paterno,
+                        persona.materno,
+                        persona.nombre) AS nombrePersona,
+                equipo.id_equipo AS idEquipo,
+                equipo.nombre AS nombreEquipo,
+                asignacion.id_asignacion AS idAsignacion,
+                asignacion.marca AS marca,
+                asignacion.modelo AS modelo,
+                asignacion.color AS color,
+                asignacion.descripcion AS descripcion,
+                asignacion.memoria AS memoria,
+                asignacion.disco_duro AS discoDuro,
+                asignacion.procesador AS procesador
+            FROM
+                t_asignacion AS asignacion
+                    INNER JOIN
+                t_persona AS persona ON asignacion.id_persona = persona.id_persona
+                    INNER JOIN
+                t_cat_equipo AS equipo ON asignacion.id_equipo = equipo.id_equipo
+            WHERE asignacion.id_persona = '$idPersona'";
 
-
+    $respuesta = mysqli_query($conexion, $sql);
 ?>
 
-    <!-- Page Content -->
     <div class="container">
         <div class="card border-0 shadow my-5">
             <div class="card-body p-5">
                 <h1 class="fw-light">Mis dispositivos</h1>
-                <p class="lead">Content on the page will</p>
+                <p class="lead">
+                <div class="row">
+                    <?php while ($mostrar = mysqli_fetch_array($respuesta)) { ?>
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4><?php echo $mostrar['nombreEquipo']; ?></h4>
+                                    <p><?php echo $mostrar['marca'] . " " . $mostrar['modelo']; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+                </p>
             </div>
         </div>
     </div>
-    </body>
 
-    </html>
-
-<?php include_once 'footer.php';
+<?php
+    include_once 'footer.php';
 } else {
     header('Location: ../index.html');
 }

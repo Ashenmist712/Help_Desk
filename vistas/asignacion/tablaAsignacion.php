@@ -20,7 +20,7 @@ $sql = "SELECT
                     INNER JOIN
                 t_persona AS persona ON asignacion.id_persona = persona.id_persona
                     INNER JOIN
-                t_cat_equipo AS equipo ON asignacion.id_equipo = equipo.id_equipo;";
+                t_cat_equipo AS equipo ON asignacion.id_equipo = equipo.id_equipo";
 $repuesta = mysqli_query($conexion, $sql);
 ?>
 <table class="table table-sm dt-responsive nowrap" style="width: 100%" id="tablaAsignacionDataTable">
