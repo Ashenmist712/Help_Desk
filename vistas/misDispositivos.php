@@ -30,7 +30,8 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 1) {
                 asignacion.descripcion AS descripcion,
                 asignacion.memoria AS memoria,
                 asignacion.disco_duro AS discoDuro,
-                asignacion.procesador AS procesador
+                asignacion.procesador AS procesador,
+                equipo.descripcion AS imagen
             FROM
                 t_asignacion AS asignacion
                     INNER JOIN
@@ -52,8 +53,17 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 1) {
                         <div class="col-sm-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4><?php echo $mostrar['nombreEquipo']; ?></h4>
-                                    <p><?php echo $mostrar['marca'] . " " . $mostrar['modelo']; ?></p>
+                                    <h4><i class="<?php echo $mostrar['imagen'] ?>"></i><?php echo $mostrar['nombreEquipo']; ?></h4>
+                                    <p><?php echo $mostrar['descripcion']; ?></p>
+                                    <ul>
+                                        <li>Marca:<?php echo $mostrar['marca'] ?></li>
+                                        <li>Modelo:<?php echo $mostrar['modelo'] ?></li>
+                                        <li>Color:<?php echo $mostrar['color'] ?></li>
+                                        <li>Descripcion:<?php echo $mostrar['descripcion'] ?></li>
+                                        <li>Memoria:<?php echo $mostrar['memoria'] ?></li>
+                                        <li>Disco Duro:<?php echo $mostrar['discoDuro'] ?></li>
+                                        <li>Procesador:<?php echo $mostrar['procesador'] ?></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
