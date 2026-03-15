@@ -32,7 +32,6 @@ function eliminarAsignacion(idAsignacion) {
         confirmButtonText: 'Sí, eliminar',
         cancelButtonText: 'Cancelar'
     }).then((result) => {
-        // Si el usuario hizo clic en "Sí, eliminar"
         if (result.isConfirmed) {
             $.ajax({
                 type: "POST",
@@ -41,7 +40,6 @@ function eliminarAsignacion(idAsignacion) {
                 success: function(respuesta) {
                     respuesta = respuesta.trim();
                     if (respuesta == 1) {
-                        // Recargamos la tabla para ver el cambio
                         $('#tablaAsignacionesLoad').load('asignacion/tablaAsignacion.php');
                         Swal.fire(
                             '¡Eliminado!',
