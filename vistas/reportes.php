@@ -1,25 +1,24 @@
 <?php
 include_once 'header.php';
-if (isset($_SESSION['usuario']) &&  $_SESSION['usuario']['rol'] == 2) {
-
-
+if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 2) {
 ?>
-
-    <!-- Page Content -->
     <div class="container">
         <div class="card border-0 shadow my-5">
             <div class="card-body p-5">
-                <h1 class="fw-light">Reportes</h1>
-                <p class="lead">Content on the page will</p>
+                <h1 class="fw-light">Gestión de Reportes de Usuario</h1>
+                <hr>
+                <div id="tablaReporteAdminLoad"></div>
             </div>
         </div>
     </div>
-    </body>
 
-    </html>
-
-<?php include_once 'footer.php';
+    <?php
+    include 'reportesAdmin/modalAgregarSolucion.php';
+    include_once 'footer.php'; ?>
+    <script src="../public/js/reportesAdmin/reportesAdmin.js"></script>
+<?php
 } else {
     header('Location: ../index.html');
+    exit();
 }
 ?>

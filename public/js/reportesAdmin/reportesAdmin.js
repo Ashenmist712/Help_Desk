@@ -1,26 +1,8 @@
 $(document).ready(function(){
-$('#tablaReporteClienteLoad').load('reportesCliente/tablaReportesCliente.php');
+    $('#tablaReporteAdminLoad').load('reportesAdmin/tablaReportesAdmin.php'); 
 });
 
-function agregarNuevoReporteCliente() {
-    $.ajax({
-        type: "POST",
-        data: $('#frmNuevoReporte').serialize(),
-        url: "../procesos/reportesCliente/agregarNuevoReporte.php",
-        success: function(respuesta) {
-            respuesta = respuesta.trim();
-            if (respuesta == 1) {
-                $('#tablaReportesClienteDataTable').DataTable().ajax.reload();
-                $('#frmNuevoReporte')[0].reset(); 
-                Swal.fire("¡Listo!", "Reporte creado con éxito", "success");
-            } else {
-                Swal.fire("Error", "No se pudo crear el reporte", "error");
-            }
-        }
-    });
-    return false;
-}
-function eliminarReporteCliente(idReporte){
+function eliminarReporteAdmin(idReporte){
     Swal.fire({
         title: '¿Estás seguro de eliminar esta asignación?',
         text: "¡Esta acción no se puede deshacer!",
@@ -56,4 +38,8 @@ function eliminarReporteCliente(idReporte){
             });
         }
     });
+}
+
+function obtenerDatosSolucion(idReporte){
+
 }
