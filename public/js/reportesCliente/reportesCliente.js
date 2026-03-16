@@ -20,3 +20,40 @@ function agregarNuevoReporte() {
     });
     return false;
 }
+function eliminarReporteCliente(idReporte){
+    Swal.fire({
+        title: '¿Estás seguro de eliminar esta asignación?',
+        text: "¡Esta acción no se puede deshacer!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                data: "idReporte=" + idReporte,
+                url: "../procesos/reportesCliente/eliminarReporteCliente.php",
+                success: function(respuesta) {
+                    respuesta = respuesta.trim();
+                    if (respuesta == 1) {
+                        $('#tablaReporteClienteLoad').load('reportesCliente/tablaReportesCliente.php');
+                        Swal.fire(
+                            '¡Eliminado!',
+                            'La asignación ha sido borrada.',
+                            'success'
+                        );
+                    } else {
+                        Swal.fire(
+                            ':(',
+                            'Error al eliminar: ' + respuesta,
+                            'error'
+                        );
+                    }
+                }
+            });
+        }
+    });
+}

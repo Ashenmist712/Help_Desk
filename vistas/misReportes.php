@@ -22,7 +22,6 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 1) {
             </div>
         </div>
     </div>
-
     <?php
     include 'reportesCliente/modalCrearReporte.php';
     include_once 'footer.php';

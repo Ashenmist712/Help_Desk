@@ -21,4 +21,14 @@ class Reportes extends Conexion
         $query->close();
         return $respuesta;
     }
+    public function eliminarReporteCliente($idReporte)
+    {
+        $conexion = Conexion::conectar();
+        $sql = "DELETE FROM t_reportes WHERE id_reporte = ?";
+        $query = $conexion->prepare($sql);
+        $query->bind_param('i', $idReporte);
+        $respuesta = $query->execute();
+        $query->close();
+        return $respuesta;
+    }
 }

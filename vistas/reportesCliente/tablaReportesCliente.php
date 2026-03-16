@@ -58,9 +58,12 @@ $respuesta = mysqli_query($conexion, $sql);
                 </td>
                 <td><?php echo $mostrar['solucion']; ?></td>
                 <td>
-                    <button class="btn btn-danger btn-sm">
-                        <span class="fas fa-trash-alt"></span>
-                    </button>
+                    <?php if ($mostrar['solucion'] == "") { ?>
+                        <button class="btn btn-danger btn-sm"
+                            onclick="eliminarReporteCliente('<?php echo $mostrar['idReporte']; ?>')">
+                            <span class="fas fa-trash-alt"></span>
+                        </button>
+                    <?php } ?>
                 </td>
             </tr>
         <?php } ?>
