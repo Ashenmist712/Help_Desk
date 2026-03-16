@@ -1,4 +1,4 @@
-<form id="frmNuevoReporte" method="POST" onsubmit="return agregarNuevoReporte();">
+<form id="frmNuevoReporte" method="POST" onsubmit="return agregarNuevoReporte()">
     <div class="modal fade" id="modalCrearReporte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -12,36 +12,34 @@
                     <label for="idEquipo">Mis Dispositivos</label>
                     <?php
                     $idUsuario = $_SESSION['usuario']['id'];
-                    $sql = " SELECT 
-                                asignacion.id_asignacion AS idAsignacion,
-                                equipo.id_equipo AS idEquipo,
-                                equipo.nombre AS nombreEquipo
-                            FROM
-                                t_asignacion AS asignacion
+                    $sql = "SELECT 
+                                    asignacion.id_asignacion AS idAsignacion,
+                                    equipo.id_equipo AS idEquipo,
+                                    equipo.nombre AS nombreEquipo
+                                FROM
+                                    t_asignacion AS asignacion
                                     INNER JOIN
-                                t_cat_equipo AS equipo ON asignacion.id_equipo = equipo.id_equipo
-                            WHERE
-                                asignacion.id_persona = (SELECT 
-                                        id_persona
-                                    FROM
-                                        t_usuarios
-                                    WHERE
-                                        id_usuario = '$idUsuario')";
+                                    t_cat_equipo AS equipo ON asignacion.id_equipo = equipo.id_equipo
+                                WHERE
+                                    asignacion.id_persona = (SELECT id_persona FROM t_usuarios WHERE id_usuario = '$idUsuario')";
                     $respuesta = mysqli_query($conexion, $sql);
-
                     ?>
+
                     <select name="idEquipo" id="idEquipo" class="form-control" required>
                         <option value="">Selecciona un Dispositivo</option>
                         <?php while ($mostrar = mysqli_fetch_array($respuesta)) { ?>
-                            <option value="<?php echo $mostrar['idEquipo'] ?>"><?php echo $mostrar['nombreEquipo'] ?></option>
+                            <option value="<?php echo $mostrar['idEquipo'] ?>">
+                                <?php echo $mostrar['nombreEquipo'] ?>
+                            </option>
                         <?php } ?>
                     </select>
-                    <label for="problema">Describe tu Problema</label>
-                    <textarea name="problema" id="problema" class="form-control" required></textarea>
+
+                    <label for="problema" class="mt-3">Describe tu Problema</label>
+                    <textarea name="problema" id="problema" class="form-control" rows="4" placeholder="Detalla la falla aquí..." required></textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button class="btn btn-danger">Crear</button>
+                    <button type="submit" class="btn btn-primary">Crear Reporte</button>
                 </div>
             </div>
         </div>
