@@ -83,7 +83,11 @@ $respuesta = mysqli_query($conexion, $sql);
             responsive: true,
             language: {
                 url: "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
-            }
+            },
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
         });
     });
 </script>

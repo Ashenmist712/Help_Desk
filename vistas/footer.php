@@ -8,6 +8,13 @@
 <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap4.min.js"></script>
 <script src="../public/sweetalert2/sweetalert2@11.js"></script>
 <script src="../public/js/inicio/actualizarPersonales.js"></script>
+<script src="../public/datatable/dataTables.buttons.min.js"></script>
+<script src="../public/datatable/jszip.min.js"></script>
+<script src="../public/datatable/pdfmake.min.js"></script>
+<script src="../public/datatable/vfs_fonts.js"></script>
+<script src="../public/datatable/buttons.html5.min.js"></script>
+<script src="../public/datatable/buttons.print.min.js"></script>
+<script src="../public/datatable/buttons.bootstrap4.min.js"></script>
 </body>
 
 </html>
