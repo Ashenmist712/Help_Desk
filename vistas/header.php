@@ -61,7 +61,10 @@ session_start();
                             <?php echo $_SESSION['usuario']['nombre'] ?>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Editar Datos</a>
+                            <a class="dropdown-item"
+                                href="#"
+                                data-toggle="modal" data-target="#modalActualizarDatosPersonales">
+                                Editar Datos</a>
                             <a class="dropdown-item" href="../procesos/usuarios/login/salir.php">Salir</a>
                         </div>
                     </li>
@@ -69,3 +72,7 @@ session_start();
             </div>
         </div>
     </nav>
+
+    <?php
+    include 'inicio/modalActualizarDatosPersonales.php';
+    ?>
