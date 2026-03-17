@@ -66,8 +66,9 @@ if (isset($_SESSION['usuario']) && ($_SESSION['usuario']['rol'] == 1 || $_SESSIO
                             <button class="btn btn-warning btn-sm shadow-sm px-4 rounded-pill"
                                 data-toggle="modal"
                                 data-target="#modalActualizarDatosPersonales"
-                                onclick="editarDatosPersonales('<?php echo $idUsuario; ?>')">
-                                <i class="fas fa-edit me-1"></i> Editar mi perfil
+                                onclick="obtenerPersonalesInicio('<?php echo $idUsuario; ?>')">
+                                <i class="fas fa-edit me-1"></i>
+                                Editar mi perfil
                             </button>
                         </div>
                     </div>

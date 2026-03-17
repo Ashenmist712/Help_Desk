@@ -19,7 +19,7 @@ $sql = "SELECT
             INNER JOIN t_usuarios AS usuario ON reporte.id_usuario = usuario.id_usuario
             INNER JOIN t_cat_equipo AS equipo ON reporte.id_equipo = equipo.id_equipo
             INNER JOIN t_persona AS persona ON usuario.id_persona = persona.id_persona
-            ON ORDER BY reporte.fecha DESC";
+        ORDER BY reporte.fecha DESC";
 
 $respuesta = mysqli_query($conexion, $sql);
 ?>

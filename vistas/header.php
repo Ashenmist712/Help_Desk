@@ -16,7 +16,6 @@ session_start();
 </head>
 
 <body>
-    <!-- Navigation -->
     <nav
         class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
         <div class="container">
@@ -63,8 +62,10 @@ session_start();
                         <div class="dropdown-menu">
                             <a class="dropdown-item"
                                 href="#"
-                                data-toggle="modal" data-target="#modalActualizarDatosPersonales">
-                                Editar Datos</a>
+                                data-toggle="modal" data-target="#modalActualizarDatosPersonales"
+                                onclick=" return obtenerPersonalesInicio('<?php echo $_SESSION['usuario']['id']; ?>')">
+                                Editar Datos
+                            </a>
                             <a class="dropdown-item" href="../procesos/usuarios/login/salir.php">Salir</a>
                         </div>
                     </li>
