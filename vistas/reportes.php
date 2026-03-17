@@ -1,5 +1,5 @@
 <?php
-include_once 'header.php';
+include 'header.php';
 if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 2) {
 ?>
     <div class="container">
@@ -14,7 +14,7 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 2) {
 
     <?php
     include 'reportesAdmin/modalAgregarSolucion.php';
-    include_once 'footer.php'; ?>
+    include 'footer.php'; ?>
     <script src="../public/js/reportesAdmin/reportesAdmin.js"></script>
 <?php
 } else {

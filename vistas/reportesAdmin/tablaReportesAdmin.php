@@ -18,7 +18,8 @@ $sql = "SELECT
             t_reportes AS reporte
             INNER JOIN t_usuarios AS usuario ON reporte.id_usuario = usuario.id_usuario
             INNER JOIN t_cat_equipo AS equipo ON reporte.id_equipo = equipo.id_equipo
-            INNER JOIN t_persona AS persona ON usuario.id_persona = persona.id_persona";
+            INNER JOIN t_persona AS persona ON usuario.id_persona = persona.id_persona
+            ON ORDER BY reporte.fecha DESC";
 
 $respuesta = mysqli_query($conexion, $sql);
 ?>
@@ -48,15 +49,16 @@ $respuesta = mysqli_query($conexion, $sql);
                     <?php
                     $estatus = $mostrar['estatus'];
                     if ($estatus == 1) {
-                        echo '<span class="badge badge-success">Abierto</span>';
+                        echo '<span class="badge badge-danger">Abierto</span>';
                     } else {
-                        echo '<span class="badge badge-danger">Cerrado</span>';
+                        echo '<span class="badge badge-success">Cerrado</span>';
                     }
                     ?>
                 </td>
                 <td>
-                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalAgregarSolucion"
-                        onclick="obtenerDatosSolucion('<?php echo $mostrar['idReporte'] ?>')">
+                    <button class="btn btn-info btn-sm"
+                        onclick="obtenerDatosSolucion('<?php echo $mostrar['idReporte']; ?>')"
+                        data-toggle="modal" data-target="#modalAgregarSolucionReporte">
                         Solucion
                     </button>
                     <?php echo $mostrar['solucion']; ?>

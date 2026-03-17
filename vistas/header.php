@@ -44,7 +44,7 @@ session_start();
                             <a class="nav-link" href="misReportes.php">Reportes Soporte</a>
                         </li>
                     <?php } elseif (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 2) { ?>
-                        <!-- Aqui inician las vistas de admin -->
+
                         <li class="nav-item">
                             <a class="nav-link" href="usuarios.php">Usuario</a>
                         </li>
@@ -55,7 +55,7 @@ session_start();
                             <a class="nav-link" href="reportes.php">Reportes</a>
                         </li>
                     <?php } ?>
-                    <!-- Dropdown -->
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:blue;">
                             <?php echo $_SESSION['usuario']['nombre'] ?>
