@@ -63,6 +63,12 @@ $repuesta = mysqli_query($conexion, $sql);
 </table>
 <script>
     $(document).ready(function() {
-        $('#tablaAsignacionDataTable').DataTable();
+        $('#tablaAsignacionDataTable').DataTable({
+            destroy: true,
+            responsive: true,
+            language: {
+                url: "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+            }
+        });
     });
 </script>

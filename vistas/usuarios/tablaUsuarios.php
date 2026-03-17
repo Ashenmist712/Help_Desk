@@ -58,7 +58,7 @@ $respuesta = mysqli_query($conexion, $sql);
                     <td><?php echo $mostrar['sexo']; ?></td>
                     <td>
                         <button class="btn btn-success btn-sm">
-                            Cambiar Password
+                            <i class="fa-solid fa-rotate-left" style="color: rgb(31, 50, 82);"></i>
                         </button>
                     </td>
                     <td>
@@ -66,11 +66,11 @@ $respuesta = mysqli_query($conexion, $sql);
                         if ($mostrar['estatus'] == 1) {
                         ?>
                             <button class="btn btn-info btn-sm">
-                                Activo
+                                <i class="fa-solid fa-user-check" style="color: rgb(31, 50, 82);"></i>
                             </button>
                         <?php } else { ?>
                             <button class="btn btn-secondary btn-sm">
-                                Inactivo
+                                <i class="fa-solid fa-user-check" style="color: rgb(31, 50, 82);"></i>
                             </button>
                         <?php
                         }
@@ -80,12 +80,12 @@ $respuesta = mysqli_query($conexion, $sql);
                         <button class="btn btn-warning btn-sm" data-toggle="modal"
                             data-target="#modalActualizarUsuarios"
                             onclick="obtenerDatosUsuario('<?php echo $mostrar['idUsuario']; ?>')">
-                            Editar
+                            <i class="fa-solid fa-user-pen" style="color: rgb(31, 50, 82);"></i>
                         </button>
                     </td>
                     <td>
                         <button class="btn btn-danger btn-sm">
-                            Eliminar
+                            <i class="fa-solid fa-person-through-window" style="color: rgb(31, 50, 82);"></i>
                         </button>
                     </td>
                 </tr>
@@ -93,10 +93,10 @@ $respuesta = mysqli_query($conexion, $sql);
         </tbody>
     </table>
 </div>
-
 <script>
     $(document).ready(function() {
         $('#tablaUsuariosDataTable').DataTable({
+            destroy: true,
             responsive: true,
             language: {
                 url: "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"

@@ -9,7 +9,7 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 2) {
                 <h1 class="fw-light">Administrar Usuarios</h1>
                 <div class="lead">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuarios">
-                        Agregar Usuario
+                        <i class="fa-solid fa-user-plus" style="color: rgb(31, 50, 82);"></i>
                     </button>
                     <hr>
                     <div id="tablaUsuariosLoad"></div>
