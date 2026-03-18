@@ -1,4 +1,4 @@
-<form id="#frmActualizarPassword" onsubmit="return resetPassword();" method="POST">
+<form id="frmActualizaPassword" onsubmit="return resetPassword();" method="POST">
     <div class="modal fade" id="modalResetPassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

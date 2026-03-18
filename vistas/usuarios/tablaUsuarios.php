@@ -57,35 +57,34 @@ $respuesta = mysqli_query($conexion, $sql);
                     <td><?php echo $mostrar['ubicacion']; ?></td>
                     <td><?php echo $mostrar['sexo']; ?></td>
                     <td>
-                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalResetPassword" onclick="agredarIdUsuarioReset(<?php echo $mostrar['idUsuario'] ?>)">
-                            <i class="fa-solid fa-rotate-left" style="color: rgb(31, 50, 82);"></i>
+                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalResetPassword"
+                            onclick="agregarIdUsuarioReset(<?php echo $mostrar['idUsuario']; ?>)">
+                            <i class="fa-solid fa-rotate-left"></i>
                         </button>
                     </td>
                     <td>
-                        <?php
-                        if ($mostrar['estatus'] == 1) {
-                        ?>
-                            <button class="btn btn-info btn-sm">
-                                <i class="fa-solid fa-user-check" style="color: rgb(31, 50, 82);"></i>
+                        <?php if ($mostrar['estatus'] == 1) : ?>
+                            <button class="btn btn-secondary btn-sm"
+                                onclick="cambioEstatusUsuario(<?php echo $mostrar['idUsuario']; ?>, 0)">
+                                <i class="fa-solid fa-toggle-on"></i> OFF
                             </button>
-                        <?php } else { ?>
-                            <button class="btn btn-secondary btn-sm">
-                                <i class="fa-solid fa-user-check" style="color: rgb(31, 50, 82);"></i>
+                        <?php else : ?>
+                            <button class="btn btn-success btn-sm"
+                                onclick="cambioEstatusUsuario(<?php echo $mostrar['idUsuario']; ?>, 1)">
+                                <i class="fa-solid fa-toggle-off"></i> ON
                             </button>
-                        <?php
-                        }
-                        ?>
+                        <?php endif; ?>
                     </td>
                     <td>
-                        <button class="btn btn-warning btn-sm" data-toggle="modal"
-                            data-target="#modalActualizarUsuarios"
+                        <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalActualizarUsuarios"
                             onclick="obtenerDatosUsuario('<?php echo $mostrar['idUsuario']; ?>')">
-                            <i class="fa-solid fa-user-pen" style="color: rgb(31, 50, 82);"></i>
+                            <i class="fa-solid fa-user-pen"></i>
                         </button>
                     </td>
                     <td>
-                        <button class="btn btn-danger btn-sm">
-                            <i class="fa-solid fa-person-through-window" style="color: rgb(31, 50, 82);"></i>
+                        <button class="btn btn-danger btn-sm"
+                            onclick="eliminarUsuario(<?php echo $mostrar['idUsuario']; ?>)">
+                            <i class="fa-solid fa-person-through-window"></i>
                         </button>
                     </td>
                 </tr>
@@ -93,6 +92,7 @@ $respuesta = mysqli_query($conexion, $sql);
         </tbody>
     </table>
 </div>
+
 <script>
     $(document).ready(function() {
         $('#tablaUsuariosDataTable').DataTable({
