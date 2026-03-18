@@ -21,6 +21,7 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 2) {
     <?php
     include 'usuarios/modalActualizar.php';
     include 'usuarios/modalAgregar.php';
+    include 'usuarios/modalResetPassword.php';
 
 
     include 'footer.php';

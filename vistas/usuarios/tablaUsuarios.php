@@ -57,7 +57,7 @@ $respuesta = mysqli_query($conexion, $sql);
                     <td><?php echo $mostrar['ubicacion']; ?></td>
                     <td><?php echo $mostrar['sexo']; ?></td>
                     <td>
-                        <button class="btn btn-success btn-sm">
+                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalResetPassword" onclick="agredarIdUsuarioReset(<?php echo $mostrar['idUsuario'] ?>)">
                             <i class="fa-solid fa-rotate-left" style="color: rgb(31, 50, 82);"></i>
                         </button>
                     </td>

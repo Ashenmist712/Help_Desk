@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // Agregué las comillas y el # que faltaban aquí
+    
     $('#tablaUsuariosLoad').load('usuarios/tablaUsuarios.php');
 });
 
@@ -14,7 +14,7 @@ function agregarNuevoUsuario(){
                 $('#tablaUsuariosLoad').load('usuarios/tablaUsuarios.php');
                 swal.fire(":D", "Agregado con exito!", "success");
                 
-                // CORRECCIÓN: El reset es para el FORMULARIO, no para la tabla
+                
                 $('#frmAgregarUsuario')[0].reset(); 
             } else {
                 swal.fire(":(", "Error al agregar!" + respuesta, "error");
@@ -65,6 +65,26 @@ function actualizarUsuario(){
                 $('#frmActualizarUsuario').trigger("reset");
             } else {
                 swal.fire(":(", "Error al actualizar!" + respuesta, "error");
+            }
+        }
+    });
+    return false;
+}
+function agredarIdUsuarioReset(idUsuario){
+    $('#idUsuarioReset').val(idUsuario);
+}
+function resetPassword(){
+     $.ajax({
+        type: "POST",
+        data: $('#frmActualizaPassword').serialize(),
+        url: "../procesos/usuarios/extras/resetPassword.php",
+        success: function(respuesta) {
+            respuesta = respuesta.trim();
+            if (respuesta == 1) {
+                $('#modalResetPassword').modal('hide'); 
+                swal.fire(":D", "Cambio de password exitoso!", "success");
+            } else {
+                swal.fire(":(", "Error al actualizar password!" + respuesta, "error");
             }
         }
     });
