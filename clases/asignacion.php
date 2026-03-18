@@ -18,7 +18,7 @@ class asignacion extends Conexion
                             VALUES (?,?,?,?,?,?,?,?,?)";
         $query = $conexion->prepare($sql);
 
-        // CORRECCIÓN: Quitar las comas del primer argumento
+
         $query->bind_param(
             'iisssssss',
             $datos['idPersona'],

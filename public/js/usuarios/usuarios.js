@@ -112,4 +112,37 @@ function cambioEstatusUsuario(idUsuario, estatus) {
     });
     return false;
 }
+function  eliminarUsuario(idUsuario, idPersona){
+    Swal.fire({
+           title: '¿Estás seguro de eliminar esta asignación?',
+           text: "¡Esta acción no se puede deshacer!",
+           icon: 'warning',
+           showCancelButton: true,
+           confirmButtonColor: '#3085d6',
+           cancelButtonColor: '#d33',
+           confirmButtonText: 'Sí, eliminar',
+           cancelButtonText: 'Cancelar'
+       }).then((result) => {
+           if (result.isConfirmed) {
+                $.ajax({
+           type: "POST",
+           data: "idUsuario=" + idUsuario + "&idPersona=" + idPersona,
+           url: "../procesos/usuarios/CRUD/eliminarUsuario.php",
+           success:function(respuesta){
+                respuesta = respuesta.trim();
+               if (respuesta == 1) {
+                   $('#tablaUsuariosLoad').load('usuarios/tablaUsuarios.php');
+                   Swal.fire(":D", "Usuario eliminado con exito exitoso!", "warning");
+               } else {
+                   
+                   Swal.fire(":(", "Error al eliminar usuario! " + respuesta, "error");
+               }
+    
+           }
+       });
+       return false;
+           }
+       });
+   
+}
 

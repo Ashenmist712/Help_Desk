@@ -82,6 +82,13 @@ $respuesta = mysqli_query($conexion, $sql);
                         </button>
                     </td>
                     <td>
+                        <form id="frmEliminarUsuario" method="POST" onsubmit=" return eliminarUsuario()">
+                            <input type="text" name="idUsuarioEliminar" hidden value="<?php $mostrar['idUsuario']; ?>">
+                            <input type="text" name="idPersonaEliminar" hidden value="<?php $mostrar['idPersona']; ?>">
+
+
+
+                        </form>
                         <button class="btn btn-danger btn-sm"
                             onclick="eliminarUsuario(<?php echo $mostrar['idUsuario']; ?>)">
                             <i class="fa-solid fa-person-through-window"></i>
