@@ -14,7 +14,7 @@
 <script src="../public/datatable/vfs_fonts.js"></script>
 <script src="../public/datatable/buttons.html5.min.js"></script>
 <script src="../public/datatable/buttons.print.min.js"></script>
-<script src="../public/datatable/buttons.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap4.min.js"></script>
 </body>
 
 </html>

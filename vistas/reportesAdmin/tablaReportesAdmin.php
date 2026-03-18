@@ -85,8 +85,27 @@ $respuesta = mysqli_query($conexion, $sql);
                 url: "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
             },
             dom: 'Bfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+            buttons: [{
+                    extend: 'copy',
+                    text: '<i class="fa-solid fa-copy" style="color: rgb(31, 50, 82);"></i> Copiar',
+                    className: 'btn btn-secondary mr-2'
+                },
+                {
+                    extend: 'excel',
+
+                    text: '<i class="fa-solid fa-file-excel" style="color: rgb(31, 50, 82);"></i> Excel',
+                    className: 'btn btn-success mr-2'
+                },
+                {
+                    extend: 'pdf',
+                    text: '<i class="fa-solid fa-file-pdf" style="color: rgb(31, 50, 82);"></i> PDF',
+                    className: 'btn btn-danger mr-2'
+                },
+                {
+                    extend: 'print',
+                    text: '<i class="fa-solid fa-print" style="color: rgb(31, 50, 82);"></i> Imprimir',
+                    className: 'btn btn-info mr-2'
+                }
             ]
         });
     });
