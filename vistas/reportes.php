@@ -7,7 +7,7 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 2) {
             <div class="card-body p-5">
                 <h1 class="fw-light">Gestión de Reportes de Usuario</h1>
                 <hr>
-                <div id="tablaReporteAdminLoad"></div>
+                <div id="tablaReporteClienteLoad"></div>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 2) {
     <?php
     include 'reportesAdmin/modalAgregarSolucion.php';
     include 'footer.php'; ?>
-    <script src="../public/js/reportesAdmin/reportesAdmin.js"></script>
+    <script src="../public/js/reportesCliente/reportesCliente.js"></script>
 <?php
 } else {
     header('Location: ../index.html');

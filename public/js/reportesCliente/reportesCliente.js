@@ -10,7 +10,7 @@ function agregarNuevoReporteCliente() {
         success: function(respuesta) {
             respuesta = respuesta.trim();
             if (respuesta == 1) {
-                $('#tablaReportesClienteDataTable').DataTable().ajax.reload();
+                $('#tablaReporteClienteLoad').load('reportesCliente/tablaReportesCliente.php');
                 $('#frmNuevoReporte')[0].reset(); 
                 Swal.fire("¡Listo!", "Reporte creado con éxito", "success");
             } else {

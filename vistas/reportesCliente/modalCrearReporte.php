@@ -1,3 +1,8 @@
+<?php
+include '../../clases/conexion.php';
+$con = new Conexion();
+$conexion = $con->conectar();
+?>
 <form id="frmNuevoReporte" method="POST" onsubmit="return agregarNuevoReporte()">
     <div class="modal fade" id="modalCrearReporte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -22,6 +27,7 @@
                                     t_cat_equipo AS equipo ON asignacion.id_equipo = equipo.id_equipo
                                 WHERE
                                     asignacion.id_persona = (SELECT id_persona FROM t_usuarios WHERE id_usuario = '$idUsuario')";
+                    var_dump($conexion);
                     $respuesta = mysqli_query($conexion, $sql);
                     ?>
 
