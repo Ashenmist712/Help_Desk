@@ -1,0 +1,89 @@
+/* Paleta de colores Tryhtech */
+:root {
+    --verde-neon: #2ecc71;
+    --fondo-oscuro: #0d1117;
+    --tarjeta: #161b22;
+    --borde: #30363d;
+}
+
+body {
+    background-color: var(--fondo-oscuro);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+}
+
+#contenedor-login {
+    background-color: var(--tarjeta);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid var(--verde-neon);
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.2);
+    width: 350px;
+    text-align: center;
+}
+
+h1 {
+    color: var(--verde-neon);
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #8b949e;
+    font-size: 14px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    background: #0d1117;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    color: white;
+    box-sizing: border-box; /* Importante para que no se salga del cuadro */
+}
+
+input:focus {
+    border-color: var(--verde-neon);
+    outline: none;
+    box-shadow: 0 0 8px rgba(46, 204, 113, 0.2);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--verde-neon);
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+#linkContacto {
+    color: var(--verde-neon);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+#modalContacto {
+    background: #0d1117;
+    border: 1px solid var(--verde-neon) !important;
+    border-radius: 8px;
+    text-align: left;
+    color: #e6edf3;
+}
