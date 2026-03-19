@@ -1,0 +1,300 @@
+/* --- VARIABLES --- */
+:root {
+    --verde-tech: #2ecc71;
+    --fondo-dark: #0d1117;
+    --card-dark: #161b22;
+    --borde: #30363d;
+}
+
+/* --- GENERAL --- */
+body {
+    background-color: var(--fondo-dark);
+    color: #e6edf3;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- TABLAS DATATABLES --- */
+/* --- CONTENEDOR DE TABLA (CENTRADO Y AMPLIO) --- */
+.contenedor-tabla {
+    background: rgba(13, 17, 23, 0.8) !important;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(46, 204, 113, 0.4) !important;
+    border-radius: 20px !important;
+    padding: 30px !important;
+    width: 95% !important; /* Que ocupe casi toda la pantalla */
+    max-width: 1200px !important; /* Pero con un límite para que no se estire infinito */
+    margin: 20px auto; /* La centra horizontalmente */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    overflow-x: auto; /* Por si la pantalla es chica, que salga scroll abajo */
+}
+
+/* --- ESTILO DE LA TABLA INTERNA --- */
+table.dataTable {
+    width: 100% !important;
+    color: white !important;
+    border-collapse: collapse !important;
+    font-size: 14px; /* Tamaño de letra más cómodo */
+}
+
+table.dataTable thead th {
+    color: #2ecc71 !important;
+    border-bottom: 2px solid #2ecc71 !important;
+    padding: 15px !important;
+    text-align: left;
+}
+
+table.dataTable tbody td {
+    padding: 12px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* --- ICONOS DE ACCIONES --- */
+.btn-accion {
+    font-size: 1.2rem;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+table.dataTable thead th {
+    color: var(--verde-tech) !important;
+    border-bottom: 2px solid var(--verde-tech) !important;
+    background-color: transparent !important;
+}
+
+/* --- BOTONES --- */
+.btn-nuevo {
+    background-color: var(--verde-tech);
+    color: #000;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-nuevo:hover {
+    background-color: #27ae60;
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+}
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.card-bienvenida {
+    background-color: #161b22; /* Gris oscuro tipo GitHub */
+    border: 1px solid #2ecc71; /* Verde neón */
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.2);
+    width: 450px;
+    color: white;
+}
+
+.titulo-verde { color: #2ecc71; margin-bottom: 5px; font-size: 28px; }
+.nombre-usuario { color: white; font-size: 22px; margin-bottom: 20px; }
+
+.img-perfil {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    border: 3px solid #2ecc71;
+    margin-bottom: 20px;
+    background: #0d1117;
+}
+
+.info-usuario {
+    text-align: left;
+    background: #0d1117;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.info-usuario p {
+    margin: 10px 0;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 5px;
+}
+
+.info-usuario i { color: #2ecc71; margin-right: 10px; }
+/* --- RESET GENERAL --- */
+body {
+    background-color: #0d1117 !important; /* Fondo negro azulado */
+    color: #e6edf3 !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- ESTILO DE LAS TARJETAS DE INICIO (ADMIN Y CLIENTE) --- */
+.card-bienvenida, #perfil-card {
+    background-color: #161b22 !important; /* Gris oscuro GitHub */
+    border: 1px solid #2ecc71 !important; /* Verde Neón */
+    border-radius: 15px !important;
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.2) !important;
+    color: white !important;
+}
+
+/* --- TABLAS (DATATABLES) --- */
+.contenedor-tabla {
+    background-color: #161b22 !important;
+    border: 1px solid #30363d !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+}
+
+/* --- BOTONES VERDES --- */
+.btn-nuevo, button[type="submit"] {
+    background-color: #2ecc71 !important;
+    color: #000 !important;
+    font-weight: bold !important;
+    border: none !important;
+    transition: 0.3s !important;
+}
+
+.btn-nuevo:hover {
+    background-color: #27ae60 !important;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.5) !important;
+}
+
+/* --- TEXTOS VERDES --- */
+h1, h2, .titulo-verde, i {
+    color: #2ecc71 !important;
+}
+/* --- FONDO DE PANTALLA --- */
+body {
+    /* Elige una de tus imágenes. Si están en recursos/img/fondo.jpg: */
+    background: url('../img/fondoHelpDesk.webp') no-repeat center center fixed; 
+    background-size: cover;
+    color: #e6edf3;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* --- EFECTO GLASSMORPHISM (TARJETAS) --- */
+.card-bienvenida, #perfil-card, .contenedor-tabla {
+    background: rgba(13, 17, 23, 0.85) !important; /* Fondo oscuro semi-transparente */
+    backdrop-filter: blur(10px); /* Desenfoque del fondo para efecto cristal */
+    border: 1px solid rgba(46, 204, 113, 0.3) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8) !important;
+    padding: 30px !important;
+    color: white !important;
+}
+
+/* --- TÍTULOS CON BRILLO --- */
+h1, .titulo-verde {
+    color: #2ecc71 !important;
+    text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+    font-weight: bold;
+}
+
+/* --- BOTONES NEÓN --- */
+.btn-nuevo {
+    background-color: #2ecc71 !important;
+    color: #000 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
+    border: none;
+    font-weight: bold;
+    padding: 12px 24px;
+    transition: 0.3s;
+}
+
+.btn-nuevo:hover {
+    box-shadow: 0 0 25px rgba(46, 204, 113, 0.7);
+    transform: scale(1.05);
+}
+
+/* --- TABLAS TRANSPARENTES --- */
+table.dataTable {
+    background: transparent !important;
+}
+
+table.dataTable thead th {
+    background: rgba(46, 204, 113, 0.1) !important;
+    color: #2ecc71 !important;
+    border-bottom: 2px solid #2ecc71 !important;
+}
+
+/* --- NAVBAR ESTILO CRISTAL --- */
+nav {
+    background: rgba(13, 17, 23, 0.9) !important;
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid #2ecc71;
+}
+/* --- BOTÓN PRINCIPAL (VERDE NEÓN) --- */
+.btn-nuevo, .btn-entrar, button[type="submit"] {
+    background: linear-gradient(45deg, #2ecc71, #27ae60) !important;
+    color: #000 !important; /* Texto negro para contraste */
+    border: none !important;
+    padding: 12px 25px !important;
+    border-radius: 10px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-nuevo:hover {
+    box-shadow: 0 0 25px rgba(46, 204, 113, 0.8);
+    transform: translateY(-3px) scale(1.02);
+    background: linear-gradient(45deg, #27ae60, #2ecc71) !important;
+}
+
+/* --- BOTÓN DE EDICIÓN (NARANJA/AMARILLO) --- */
+.btn-editar, .btn-warning {
+    background: linear-gradient(45deg, #f1c40f, #f39c12) !important;
+    color: #000 !important;
+    border: none !important;
+    padding: 8px 15px !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
+    transition: 0.3s;
+}
+
+.btn-editar:hover {
+    box-shadow: 0 0 20px rgba(241, 196, 15, 0.6);
+    transform: scale(1.05);
+}
+
+/* --- BOTÓN DE ELIMINAR (ROJO NEÓN) --- */
+.btn-eliminar, .btn-danger {
+    background: rgba(231, 76, 60, 0.2) !important;
+    color: #e74c3c !important;
+    border: 1px solid #e74c3c !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    transition: 0.3s;
+}
+
+.btn-eliminar:hover {
+    background: #e74c3c !important;
+    color: white !important;
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.6);
+}
+/* Estilo para el logo en el Nav (TAMAÑO AJUSTADO) */
+.nav-logo {
+    height: 30px; /* Reducimos el tamaño de 35px a 30px */
+    width: auto;  /* Mantiene la proporción de la imagen */
+    vertical-align: middle; /* Lo alinea con el texto 'Tryhtech' */
+    margin-right: 10px; /* Dale un aire al texto a su derecha */
+    filter: drop-shadow(0 0 5px rgba(46, 204, 113, 0.2)); /* Brillo más suave */
+    transition: 0.3s ease-in-out;
+}
+
+.nav-logo:hover {
+    transform: scale(1.05); /* Efecto de aumento más sutil */
+    filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.5));
+}
